@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import tabla from "./Componentes/tabla";
+import { Tabla } from "./Componentes/Tabla";
 function App() {
   const ListaNombres = [
     { id: 1, nombre: "Elsa", apellido: "Capunta" },
@@ -19,7 +19,9 @@ function App() {
         </div>
         <div className="columna-estado col">
           <h2>Tabla estado</h2>
-          <tabla Lista={Lista} />
+          {ListaNombres.map((lista) => (
+            <Tabla lista={lista} />
+          ))}
         </div>
       </div>
     </div>
