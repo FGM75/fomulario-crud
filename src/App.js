@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import tabla from "./Componentes/tabla";
 function App() {
+  const ListaNombres = [
+    { id: 1, nombre: "Elsa", apellido: "Capunta" },
+    { id: 2, nombre: "Aylen", apellido: "Tejas" },
+    { id: 3, nombre: "Elena", apellido: "Nito Del Bosque" },
+    { id: 4, nombre: "Helen", apellido: "Chufe" },
+    { id: 5, nombre: "Elton", apellido: "Tito" },
+    { id: 6, nombre: "Lola", apellido: "Mento" },
+  ];
+  const [Lista, setListado] = useState(ListaNombres);
   return (
     <div className="container-principal fluid">
       <h1>Listado Crud</h1>
@@ -10,7 +19,7 @@ function App() {
         </div>
         <div className="columna-estado col">
           <h2>Tabla estado</h2>
-          <tabla />
+          <tabla Lista={Lista} />
         </div>
       </div>
     </div>

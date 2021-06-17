@@ -1,5 +1,5 @@
 import React from "react";
-const tabla = () => {
+const tabla = (props) => {
   return (
     <table>
       <thead>
@@ -10,14 +10,16 @@ const tabla = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Nombre</td>
-          <td>Usuario</td>
-          <td>
-            <button className="eliminar">Eliminar</button>
-            <button className="añadir">Añadir</button>
-          </td>
-        </tr>
+        {props.listaNombres.map((Lista) => (
+          <tr key={Lista.id}>
+            <td>{Lista.nombre}</td>
+            <td>{Lista.apellido}</td>
+            <td>
+              <button className="eliminar">Eliminar</button>
+              <button className="añadir">Añadir</button>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
