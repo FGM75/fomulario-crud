@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Tabla } from "./Componentes/Tabla";
+import { AñadirNombre } from "./Componentes/AñadirNombre";
+
 function App() {
   const ListaNombres = [
     { id: 1, nombre: "Elsa", apellido: "Capunta" },
@@ -10,21 +12,30 @@ function App() {
     { id: 6, nombre: "Lola", apellido: "Mento" },
   ];
   const [Lista, setListado] = useState(ListaNombres);
+  //Agregar Nombres
+  const añadirNombre = (lista) => {
+    Lista.id = ListaNombres.id();
+    setListado([...Lista, lista]);
+  };
   return (
-    <div className="container-principal fluid">
-      <h1>Listado Crud</h1>
-      <div className="row">
-        <div className="columna-añadir col">
-          <h2>Añadir</h2>
-        </div>
-        <div className="columna-estado col">
-          <h2>Tabla estado</h2>
-          {ListaNombres.map((lista) => (
-            <Tabla lista={lista} />
-          ))}
+    <>
+      <div className="container-principal fluid">
+        <h1>Listado Crud</h1>
+        <div className="row">
+          <div className="columna-añadir col">
+            <h2>Añadir</h2>
+            <AñadirNombre añadirNombre={añadirNombre} />
+          </div>
+
+          <div className="columna-estado col">
+            <h2>Tabla estado</h2>
+            {ListaNombres.map((lista) => (
+              <Tabla lista={lista} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
